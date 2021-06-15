@@ -8,25 +8,25 @@ public class Car {
     String color;
 
     public Car() {
-
+        this(2000, 200.10, 1254, "Blue");
     }
 
     public Car(int year) {
-        this.year = year;
+        this(year, 200.10, 1254, "Blue");
     }
 
     public Car(int year, double speed) {
-        this(year);
-        this.speed = speed;
+        this(year, speed, 1423, "White");
     }
 
     public Car(int year, double speed, int weight) {
-        this(year, speed);
-        this.weight = weight;
+        this(year, speed, weight, "Red");
     }
 
     public Car(int year, double speed, int weight, String color) {
-        this(year, speed, weight);
+        this.year = year;
+        this.speed = speed;
+        this.weight = weight;
         this.color = color;
     }
 }
