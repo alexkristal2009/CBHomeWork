@@ -12,17 +12,24 @@ public class Main {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        int checkKey = 0;
+        String checkKey = null;
 
         System.out.println("Enter the version key: ");
 
-        try {
-            checkKey = Integer.parseInt(reader.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
+        while (true) {
+            try {
+                checkKey = reader.readLine();
+                if (checkKey.matches("\\d+")) {
+                    break;
+                } else {
+                    System.out.println("Invalid input. Try again: ");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        if (checkKey == proVersionKey) {
+        if (Integer.parseInt(checkKey) == proVersionKey) {
 
             System.out.println("You have entered the professional version!\n");
             DocumentWorker documentWorker = new ProDocumentWorker();
@@ -30,7 +37,7 @@ public class Main {
             documentWorker.editDocument();
             documentWorker.saveDocument();
 
-        } else if (checkKey == expVersionKey) {
+        } else if (Integer.parseInt(checkKey) == expVersionKey) {
 
             System.out.println("You have entered the expert version!\n");
             DocumentWorker documentWorker = new ExpertDocumentWorker();
@@ -40,7 +47,7 @@ public class Main {
 
         } else {
 
-            System.out.println("Invalid input. Signed into free version.\n");
+            System.out.println("Signed into free version.\n");
             DocumentWorker documentWorker = new DocumentWorker();
             documentWorker.openDocument();
             documentWorker.editDocument();
