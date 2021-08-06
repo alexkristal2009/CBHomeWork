@@ -1,22 +1,27 @@
 package JavaEssential.HomeWork005.Task4;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
 
         ArrayList<Integer> arrayList = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 11; i < 22; i++) {
             arrayList.add(i);
         }
 
-        ListIterator<Integer> listIterator = arrayList.listIterator();
+        for (Integer n : arrayList) {
+            System.out.print(n + " ");
+        }
+
+        System.out.println("\n--------------------------------");
+
+        Iterator<Integer> listIterator = arrayList.listIterator();
+
         while (listIterator.hasNext()) {
-            arrayList.set(listIterator.nextIndex(), listIterator.nextIndex() + 1);
-            System.out.println(listIterator.next());
+            System.out.print(listIterator.next() + 1 + " ");
         }
 
     }
